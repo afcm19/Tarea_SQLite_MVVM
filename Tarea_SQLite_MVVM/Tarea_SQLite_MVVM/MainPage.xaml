@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tarea_SQLite_MVVM.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Lista" Priority="0" Order="Primary" Clicked="lista_Clicked">
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+    <StackLayout FlexLayout.AlignSelf="Center">
+        <Frame Margin="10" Padding="24" CornerRadius="10">
+            <Label Text="Registrar Empleado" HorizontalTextAlignment="Center" TextColor="Black" FontSize="30"/>
+        </Frame>
+
+        <ScrollView BackgroundColor="Gray">
+            <Frame Margin="10">
+                <StackLayout Padding="40,40,40,40">
+
+                    <Label  FontSize="Subtitle" Text="Nombre"></Label>
+                    <Entry Text="{Binding Name,Mode=TwoWay}"  x:Name="nombre"></Entry>
+                    <Label  FontSize="Subtitle" Text="Apellido"></Label>
+                    <Entry Text="{Binding Apellido,Mode=TwoWay}"  x:Name="apellido"></Entry>
+                    <Label  FontSize="Subtitle" Text="Edad"></Label>
+                    <Entry Text="{Binding Edad,Mode=TwoWay}" Keyboard="Numeric"  x:Name="edad"></Entry>                   
+                    <Label  FontSize="Subtitle" Text="Direccion"></Label>
+                    <Entry Text="{Binding Direccion,Mode=TwoWay}" x:Name="direccion"></Entry>
+                    <Label FontSize="Subtitle" Text="Puesto"></Label>
+                    <Entry Text="{Binding Puesto,Mode=TwoWay}"  x:Name="puesto"></Entry>
+
+                    <Button Margin="10" FontFamily="Ubuntu" x:Name="btnSave" Command="{Binding GuardarCommand,Mode=TwoWay}"
+                        Text="Guardar "
+                        BackgroundColor="Blue"
+                        TextColor="White" CornerRadius="10" 
+                        FontSize="23" Padding="30,10,30,10"/>
+
+
+                </StackLayout>
+            </Frame>
+
+        </ScrollView>
+
+
+    </StackLayout>
+
+
+</ContentPage>

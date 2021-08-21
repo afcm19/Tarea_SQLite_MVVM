@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Tarea_SQLite_MVVM"
+             x:Class="Tarea_SQLite_MVVM.inicio">
+    <StackLayout Margin="5">
+
+        <StackLayout HorizontalOptions="FillAndExpand" WidthRequest="230" Margin="20" Orientation="Horizontal">
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer CommandParameter="{x:Type local:Informacion}" Command="{Binding IrInformacionCommand}">
+
+                </TapGestureRecognizer>
+
+            </StackLayout.GestureRecognizers>
+            <Frame HorizontalOptions="CenterAndExpand" WidthRequest="230" CornerRadius="10" BackgroundColor="Cyan">
+                <StackLayout HorizontalOptions="Center"  Orientation="Horizontal">
+                    <Label HorizontalOptions="Center" FontSize="20" Text="Mostrar Empleado"></Label>
+
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+
+
+
+
+        <ListView Margin="0"  RowHeight="200" x:Name="lista" ItemsSource="{Binding Persons}"  SelectedItem="{Binding SelectedPersona}" >
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+                    <ViewCell>
+                        <ContentView>
+                            <Frame>
+                                <StackLayout Orientation="Vertical">
+
+                                    <StackLayout Padding="10" HorizontalOptions="Center" Orientation="Horizontal">
+                                        <Label FontSize="20" FontAttributes="Bold" Text="{Binding name}"></Label>
+                                        <Label  FontSize="20" FontAttributes="Bold" Text="{Binding apellido}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Margin="0" >
+                                            <Frame  HeightRequest="20" WidthRequest="20" CornerRadius="100">
+                                                <Label FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" >
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+
+                                                            <Span Text="{Binding id}"></Span>
+
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </Frame>
+                                        </StackLayout>
+                                        <StackLayout Spacing="10" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Orientation="Vertical">
+                                            <Label >
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontSize="16" FontAttributes="Bold" Text="Edad: "></Span>
+                                                        <Span  FontSize="16" Text="{Binding edad}"></Span>
+                                                        <Span FontSize="16" Text=" años"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText></Label>
+                                          
+                                            <Label Text="{Binding direccion}" >
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontSize="16"  FontAttributes="Bold" Text="Dirección: "></Span>
+                                                        <Span FontSize="16" Text="{Binding direccion}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText> </Label>
+                                            <Label Text="{Binding puesto}">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span FontSize="16"  FontAttributes="Bold" Text="Puesto: "></Span>
+                                                        <Span FontSize="16" Text="{Binding puesto}"></Span>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+
+
+                                </StackLayout>
+
+                            </Frame>
+                        </ContentView>
+
+
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
